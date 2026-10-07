@@ -47,3 +47,9 @@ Imágenes y videos: sustituye los archivos conservando sus nombres, o actualiza 
 Los botones de compra abren una ventana con los dos kits, los datos de envío y el resumen. Al intentar cerrarla después de iniciar el formulario, se ofrece una vez un 10 % de descuento opcional. Se mantienen los datos y se permite salir sin aceptar.
 
 **Pendiente:** actualizar la implementación de Apps Script con `integraciones/google-sheets/Code.gs` (versión 3) para aceptar la nueva promoción. La página comprueba compatibilidad antes de enviar el pedido. Doble Batería: 125.900 COP con promoción; Dúo Familiar: 179.900 COP. La prueba del receptor anterior no valida esta nueva versión.
+
+## Mensajes comerciales
+
+Los textos de stock (85 % vendido), opción más vendida, despacho inmediato y pago por QR fueron suministrados por la tienda. El indicador de stock es manual, no está conectado al inventario ni cambia por tiempo o visitas: actualizar texto y `value` en `index.html` cuando cambie el lote. Mantener estas afirmaciones alineadas con ventas, disponibilidad y acuerdos de recaudo de la tienda.
+
+El recuadro de $150.000 incluye un ejemplo de 5 lavadas de $30.000 y aclara los factores que determinan el ahorro real. Los sellos de transportadoras usan sus nombres, no logotipos de certificación.
