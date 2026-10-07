@@ -1,0 +1,18 @@
+# Metadatos locales de herramientas
+.agents/
+.aws/
+.codex/
+.DS_Store
+Thumbs.db
+
+# Configuración privada
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Archivos generados y dependencias
+node_modules/
+*.log
+*.zip
