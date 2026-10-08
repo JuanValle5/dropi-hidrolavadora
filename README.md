@@ -29,7 +29,7 @@ Sube `index.html` y la carpeta `assets` completa a la raíz pública del hosting
 - Los pedidos se guardarán en Google Sheets mediante Apps Script.
 - Instalación: [instrucciones de Google Sheets](integraciones/google-sheets/INSTALACION.md).
 - Receptor: `integraciones/google-sheets/Code.gs` (se instala en Google, no en el hosting).
-- URL `/exec` configurada en `CONFIG.endpoint`, en `assets/js/main.js`, para pruebas locales. Antes de publicar, agregar el dominio a `AJUSTES.origenes` en Apps Script y desplegar una nueva versión.
+- Nueva URL `/exec` configurada en `CONFIG.endpoint`, en `assets/js/main.js`. Sitio: https://auratienda-hidrolavadora.pages.dev/. La nueva implementación respondió a las comprobaciones de compatibilidad local y de producción con versión 4. El dominio de producción está autorizado.
 - El modal de éxito solo se muestra después de recibir confirmación de guardado.
 - Correo de soporte: soporteauratienda@gmail.com. WhatsApp: +57 316 095 8557.
 - Prueba local realizada: Apps Script confirmó el guardado y la página mostró el modal de éxito. Pedido ficticio: PRUEBA AURA — NO DESPACHAR, referencia AURA-4f47b4aab3b17d66f7db5d47701e4fff. Al cambiar de dominio, repetir la prueba.
@@ -46,7 +46,7 @@ Imágenes y videos: sustituye los archivos conservando sus nombres, o actualiza 
 
 Los botones de compra abren una ventana con los dos kits, los datos de envío y el resumen. Al intentar cerrarla después de iniciar el formulario, se ofrece una vez un 10 % de descuento opcional. Se mantienen los datos y se permite salir sin aceptar.
 
-**Pendiente:** actualizar la implementación de Apps Script con `integraciones/google-sheets/Code.gs` (versión 3) para aceptar la nueva promoción. La página comprueba compatibilidad antes de enviar el pedido. Doble Batería: 125.900 COP con promoción; Dúo Familiar: 179.900 COP. La prueba del receptor anterior no valida esta nueva versión.
+**Receptor actualizado:** Apps Script acepta el dominio publicado y responde con versión 4. La página comprueba compatibilidad antes de enviar el pedido. Doble Batería: 107.900 COP con promoción; Dúo Familiar: 179.900 COP. La prueba del receptor anterior no valida esta nueva versión.
 
 ## Mensajes comerciales
 

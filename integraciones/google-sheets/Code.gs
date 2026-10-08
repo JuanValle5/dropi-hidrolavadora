@@ -2,10 +2,10 @@
 const AJUSTES = {
   pestana: 'Pedidos',
   // Agrega aquí el origen exacto de tu dominio (sin rutas ni barra final).
-  origenes: ['http://127.0.0.1:8080', 'http://localhost:8080']
+  origenes: ['https://auratienda-hidrolavadora.pages.dev', 'http://127.0.0.1:8080', 'http://localhost:8080']
 };
 const CATALOGO = {
-  doble: {nombre: 'Kit Doble Batería', contenido: '1 hidrolavadora + 2 baterías + kit', total: 139900},
+  doble: {nombre: 'Kit Doble Batería', contenido: '1 hidrolavadora + 2 baterías + kit', total: 119900},
   duo: {nombre: 'Dúo Familiar', contenido: '2 hidrolavadoras + 2 baterías + 2 kits', total: 199900}
 };
 const COLUMNAS = ['Referencia', 'Fecha Colombia', 'Nombre', 'WhatsApp', 'Departamento', 'Municipio', 'Dirección', 'Combo', 'Contenido', 'Total COP', 'Envío COP', 'Recaudo COP', 'Pago', 'Estado'];
@@ -40,7 +40,7 @@ function doPost(e) {
     if (!AJUSTES.origenes.includes(origen)) throw new Error('Origen no habilitado.');
     if (!/^[a-f0-9]{32}$/.test(token) || !/^AURA-[a-f0-9]{32}$/.test(referencia)) throw new Error('Solicitud inválida.');
     if (p.accion === 'capacidades') {
-      respuesta.ok = true; respuesta.version = 3;
+      respuesta.ok = true; respuesta.version = 4;
       return responder_(respuesta, origen);
     }
     if (String(p.website || '')) throw new Error('Solicitud inválida.');
@@ -75,7 +75,7 @@ function doPost(e) {
       SpreadsheetApp.flush();
     }
     respuesta.total = existente ? Number(hoja.getRange(existente.getRow(), 10).getValue()) : total;
-    respuesta.version = 3;
+    respuesta.version = 4;
     respuesta.ok = true;
   } catch (error) {
     // No devolver detalles internos ni información personal al navegador.

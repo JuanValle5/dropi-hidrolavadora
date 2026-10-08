@@ -57,8 +57,27 @@ Documentación oficial: https://developers.google.com/apps-script/guides/web
 
 Sustituye el código del editor por el `Code.gs` actualizado. Luego ve a Implementar → Gestionar implementaciones → Editar (lápiz) → Nueva versión → Implementar. Conserva la URL existente. No necesitas volver a crear columnas ni borrar pedidos.
 
-Solo se ofrecen Doble Batería (139.900 COP) y Dúo Familiar (199.900 COP). La promoción SALIDA10 descuenta el 10 % y redondea hacia abajo a la centena: 125.900 COP y 179.900 COP respectivamente. El receptor calcula el precio y guarda la descripción del descuento en Contenido; Total COP guarda el importe final. Las columnas anteriores se conservan.
+Solo se ofrecen Doble Batería (119.900 COP) y Dúo Familiar (199.900 COP). La promoción SALIDA10 descuenta el 10 % y redondea hacia abajo a la centena: 107.900 COP y 179.900 COP respectivamente. El receptor calcula el precio y guarda la descripción del descuento en Contenido; Total COP guarda el importe final. Las columnas anteriores se conservan.
 
-La aplicación comprueba la versión 3 del receptor antes de enviar datos personales. Mientras siga activa la versión antigua, no crea pedidos ni muestra una confirmación falsa. La comprobación de compatibilidad no guarda una fila.
+La aplicación comprueba la versión 4 del receptor antes de enviar datos personales. Mientras siga activa la versión antigua, no crea pedidos ni muestra una confirmación falsa. La comprobación de compatibilidad no guarda una fila.
 
 La oferta se muestra una sola vez por sesión de página al intentar cerrar el formulario con datos. Puede rechazarse; no bloquea la salida ni intercepta el cierre de la pestaña. Tras aceptarla, se aplica también al cambiar de kit. No se acumula.
+
+## Cambiar de cuenta de Google
+
+1. Inicia sesión con la nueva cuenta y crea una hoja privada llamada Pedidos Aura. Los pedidos anteriores se quedan en la hoja anterior; no se trasladan automáticamente.
+2. Desde la nueva hoja, abre Extensiones → Apps Script. Pega el `Code.gs` actualizado de esta carpeta.
+3. Guarda y ejecuta `prepararHoja`. Autoriza con la nueva cuenta. No ejecutes `doPost` manualmente.
+4. Implementa una nueva Aplicación web: ejecutar como Yo (nueva cuenta), acceso Cualquier usuario, incluidos visitantes sin cuenta de Google.
+5. Copia la URL terminada en `/exec` y compártela en el chat para sustituir `CONFIG.endpoint`. La hoja puede permanecer privada.
+6. Realiza un pedido ficticio, confirma la fila en la nueva hoja y comprueba el mensaje de éxito. No necesitas modificar el correo de soporte de la tienda para cambiar el propietario de la hoja.
+
+Los orígenes locales ya están incluidos. El receptor versión 4 usa 119.900 COP para una unidad y 199.900 COP para dos; con SALIDA10 redondeado: 107.900 y 179.900 COP. No requiere nuevos encabezados.
+
+## Dominio de producción configurado
+
+Sitio: https://auratienda-hidrolavadora.pages.dev/
+
+La nueva URL de Apps Script está configurada en `assets/js/main.js`. La comprobación de compatibilidad respondió correctamente en local y en producción (versión 4), sin crear pedidos. El dominio publicado ya está habilitado.
+
+Para habilitarlo, reemplaza el código del editor por este `Code.gs`, que ya incluye `https://auratienda-hidrolavadora.pages.dev` en `AJUSTES.origenes`. Guarda y usa Implementar → Gestionar implementaciones → Editar → Nueva versión → Implementar. Conserva la URL. No necesitas ejecutar de nuevo prepararHoja ni cambiar los encabezados. Después publica los archivos actualizados de la página y prueba un pedido desde el dominio.

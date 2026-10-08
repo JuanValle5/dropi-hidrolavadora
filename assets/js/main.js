@@ -1,7 +1,7 @@
 'use strict';
 /* Pega en endpoint la URL /exec de la aplicación web de Google Apps Script. */
-const CONFIG = {marca:'Aura Tienda en linea', whatsapp:'573160958557', correo:'soporteauratienda@gmail.com', endpoint:'https://script.google.com/macros/s/AKfycbxDkBafDl3DrJeNgLhPgg8wnZDaXjxgekShcCFfjkrKRiBi0FFBXVWFCL34ZceaGIv5/exec'};
-const COMBOS = {doble:{nombre:'Kit Doble Batería',detalle:'1 hidrolavadora + 2 baterías + kit',precio:139900},duo:{nombre:'Dúo Familiar',detalle:'2 hidrolavadoras + 2 baterías + 2 kits',precio:199900}};
+const CONFIG = {marca:'Aura Tienda en linea', whatsapp:'573160958557', correo:'soporteauratienda@gmail.com', endpoint:'https://script.google.com/macros/s/AKfycbyvhNXVQRwrgpmBCfdvYEQZ3UlMSko1acAX4EOGTuTZcw3v5A1DAsSLOKj2GdT1WqDgwA/exec'};
+const COMBOS = {doble:{nombre:'Kit Doble Batería',detalle:'1 hidrolavadora + 2 baterías + kit',precio:119900},duo:{nombre:'Dúo Familiar',detalle:'2 hidrolavadoras + 2 baterías + 2 kits',precio:199900}};
 const CIUDADES = {'Amazonas':['Leticia','Puerto Nariño'],'Antioquia':['Medellín','Bello','Envigado','Itagüí','Rionegro','Apartadó'],'Arauca':['Arauca','Arauquita','Saravena'],'Atlántico':['Barranquilla','Soledad','Malambo','Puerto Colombia'],'Bogotá D. C.':['Bogotá'],'Bolívar':['Cartagena','Magangué','Turbaco'],'Boyacá':['Tunja','Duitama','Sogamoso','Chiquinquirá'],'Caldas':['Manizales','La Dorada','Chinchiná'],'Caquetá':['Florencia','San Vicente del Caguán'],'Casanare':['Yopal','Aguazul','Villanueva'],'Cauca':['Popayán','Santander de Quilichao','Puerto Tejada'],'Cesar':['Valledupar','Aguachica','Bosconia'],'Chocó':['Quibdó','Istmina','Tadó'],'Córdoba':['Montería','Cereté','Lorica'],'Cundinamarca':['Soacha','Chía','Zipaquirá','Facatativá','Girardot','Fusagasugá','Mosquera','Madrid'],'Guainía':['Inírida'],'Guaviare':['San José del Guaviare','El Retorno'],'Huila':['Neiva','Pitalito','Garzón'],'La Guajira':['Riohacha','Maicao','San Juan del Cesar'],'Magdalena':['Santa Marta','Ciénaga','Fundación'],'Meta':['Villavicencio','Acacías','Granada'],'Nariño':['Pasto','Ipiales','Tumaco'],'Norte de Santander':['Cúcuta','Ocaña','Pamplona'],'Putumayo':['Mocoa','Puerto Asís','Orito'],'Quindío':['Armenia','Calarcá','Montenegro'],'Risaralda':['Pereira','Dosquebradas','Santa Rosa de Cabal'],'San Andrés y Providencia':['San Andrés','Providencia'],'Santander':['Bucaramanga','Floridablanca','Girón','Piedecuesta','Barrancabermeja'],'Sucre':['Sincelejo','Corozal','Sampués'],'Tolima':['Ibagué','Espinal','Melgar'],'Valle del Cauca':['Cali','Palmira','Buenaventura','Tuluá','Buga','Jamundí'],'Vaupés':['Mitú'],'Vichada':['Puerto Carreño','La Primavera']};
 const $ = s => document.querySelector(s);
 const money = n => '$'+new Intl.NumberFormat('es-CO').format(n);
@@ -101,7 +101,7 @@ $('#order-form').addEventListener('submit',async event=>{
  let success=false;
  try{
   const version=await enviarPedido({accion:'capacidades',referencia:reference});
-  if(version.version!==3)throw new Error('Estamos actualizando los pedidos. Contáctanos por WhatsApp para conservar tu oferta.');
+  if(version.version!==4)throw new Error('Estamos actualizando los pedidos. Contáctanos por WhatsApp para conservar tu oferta.');
   const saved=await enviarPedido({...datos,referencia:reference});
   if(saved.total!==Number(datos.totalEsperado))throw new Error('El importe recibido no coincide. Consulta por WhatsApp con la referencia '+reference+' antes de volver a pedir.');
   success=true;retryOrder=null;closeCheckout();discountAccepted=false;
